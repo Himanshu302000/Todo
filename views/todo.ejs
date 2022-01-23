@@ -3,6 +3,7 @@
         <title> <%=title %> </title>
     </head>
     <body>
+        <div style="text-align: center;">
         <h1>ToDo App</h1>
         <div>
             <form action="/enter-data" method="post">
@@ -23,5 +24,20 @@
                 <input type="submit">
             </form>
         </div>
+        <div>
+            <div><h1>Tasks to do</h1></div>
+            <ul style="list-style: none;">
+                <%for(let i=0;i<todo.length;i++){%>
+                    <li>
+                        <h1> <%=todo[i].description %> </h1>
+                        <h3><%=todo[i].category  %></h3>
+                        <p>Due date <%=todo[i].date%></p>
+                        <a style="text-decoration: none;" href="/delete-item/?id=<%=todo[i]._id%>">X</a>
+                    
+                    </li>
+                    <%}%>
+            </ul>
+        </div>
+    </div>
     </body>
 </html>
