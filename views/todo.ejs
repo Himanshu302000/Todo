@@ -3,6 +3,25 @@
         <title> <%=title %> </title>
     </head>
     <body>
-        <h1>To Do List app</h1>
+        <h1>ToDo App</h1>
+        <div>
+            <form action="/enter-data" method="post">
+                <input type="text" name="description" placeholder="what do you need to do">
+                <div>
+                    <label for="category">Choose a category:</label>
+
+                        <select name="category" id="category">
+                        <option value="home">Home</option>
+                        <option value="College">College</option>
+                        <option value="Market">Market</option>
+                        <option value="Water">Water</option>
+                        </select>
+                </div>
+                <div>
+                    <input type="date" name="date" placeholder="Due date" required>
+                </div>
+                <input type="submit">
+            </form>
+        </div>
     </body>
 </html>
