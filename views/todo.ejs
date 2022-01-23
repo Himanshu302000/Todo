@@ -1,15 +1,17 @@
 <html>
     <head>
         <title> <%=title %> </title>
+        <link rel="stylesheet" href="todo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <div style="text-align: center;">
-        <h1>ToDo App</h1>
+        <div id="main" style="text-align: center;">
+        <h1 id="head"><i class="fas fa-check-circle"></i>ToDo App</h1>
         <div>
             <form action="/enter-data" method="post">
                 <input type="text" name="description" placeholder="what do you need to do">
                 <div>
-                    <label for="category">Choose a category:</label>
+                    
 
                         <select name="category" id="category">
                         <option value="home">Home</option>
@@ -25,14 +27,17 @@
             </form>
         </div>
         <div>
-            <div><h1>Tasks to do</h1></div>
+            <div><h1><i class="fas fa-tasks"></i>Tasks to do</h1></div>
             <ul style="list-style: none;">
                 <%for(let i=0;i<todo.length;i++){%>
                     <li>
-                        <h1> <%=todo[i].description %> </h1>
-                        <h3><%=todo[i].category  %></h3>
-                        <p>Due date <%=todo[i].date%></p>
-                        <a style="text-decoration: none;" href="/delete-item/?id=<%=todo[i]._id%>">X</a>
+                        <div>
+                        <h1>Description :- <%=todo[i].description %> </h1>
+                        <h3>Category <%=todo[i].category  %></h3>
+                        <p>Due date <i class="far fa-calendar-minus"></i> <%=todo[i].date%></p>
+                        <a style="text-decoration: none;" href="/delete-item/?id=<%=todo[i]._id%>"><i class="fas fa-trash"></i></i></a>
+                        </div>
+                        
                     
                     </li>
                     <%}%>

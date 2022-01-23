@@ -14,6 +14,7 @@ const ToDo=require('./model/ToDo')
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
+app.use(express.static('assets'))
 
 app.get('/',function(req,res){
     Todo.find({},function(err,todo){
